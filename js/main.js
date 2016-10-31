@@ -92,12 +92,22 @@ function validateForm(){
 		var correo = document.getElementById('input-email').value;
 		var caracteres = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
 		if (correo === null || correo.length===0){ // El campo no debe estar vacío.
-			alert ('Ingrese correo');
+			//alert ('Ingrese correo');
+			var contenedor = document.getElementsByClassName('email-container')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('Ingrese correo, este campo no puede quedar vacío');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);
 			return false;
 		}else if (caracteres.test(correo)){ // Verifica el que contenga @ y .com ó .cl
 			return true;
 		}else{
-			alert('Ingrese su email válido');
+			//alert('Ingrese su email válido');
+			var contenedor = document.getElementsByClassName('email-container')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('Ingrese email válido');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);
 			return false;
 		}
 	}
@@ -106,13 +116,28 @@ function validateForm(){
 	function validarContrasena(){
 		var contrasena = document.getElementById('input-password').value;
 		if (contrasena === null || contrasena.length===0){ // El campo no debe estar vacío
-			alert ('Ingrese contraseña');
+			//alert ('Ingrese contraseña');
+			var contenedor = document.getElementsByClassName('form-group')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('Ingrese contraseña, este campo no puede quedar vacío');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);
 			return false;
 	    }else if (contrasena.length <  6){ // Verifica que lo ingresado tenga más de 6 caracteres
-		    alert ('Ingrese contraseña de mínimo 6 caracteres');
+		    //alert ('Ingrese contraseña de mínimo 6 caracteres');
+		    var contenedor = document.getElementsByClassName('form-group')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('Ingrese contraseña de mínimo 6 caracteres');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);
 		    return false;
 	    }else if (contrasena === "123456"  || contrasena === "password" || contrasena === "098754"){ // Comprueba que la contraseña ingresada sea distinta de "123456","password" y "098754".
-	    	alert ('Ingrese contraseña válida');
+	    	//alert ('Ingrese contraseña válida');
+	    	var contenedor = document.getElementsByClassName('form-group')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('Ingrese contraseña válida');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);
 	    	return false;
 	    }else{
 	    	alert ('Bieen');
