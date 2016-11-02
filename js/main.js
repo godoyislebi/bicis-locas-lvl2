@@ -13,6 +13,14 @@ function validateForm(){
 			etiqueta.appendChild(nodoError);
 			contenedor.appendChild(etiqueta);
 			return false;
+		}else if (/[0-9]/.test(nombre)){ // No permite números
+			var contenedor = document.getElementsByClassName('name-container')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('Este campo no debe tener números');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);
+			//alert ('Este campo no debe tener números');
+			return false;
 		}else if (nombre.substring(0,1) !== nombre.substring(0,1).toUpperCase()){ //La primera letra debe ser con mayúscula
 			var contenedor = document.getElementsByClassName('name-container')[0];
 			var etiqueta = document.createElement('span');
@@ -29,16 +37,9 @@ function validateForm(){
 			contenedor.appendChild(etiqueta);
 			//alert ('Ingrese con minúscula Ej: José');
 			return false;
-		}else if (/[0-9]/.test(nombre)){ // No permite números
-			var contenedor = document.getElementsByClassName('name-container')[0];
-			var etiqueta = document.createElement('span');
-			var nodoError = document.createTextNode('Este campo no debe tener números');
-			etiqueta.appendChild(nodoError);
-			contenedor.appendChild(etiqueta);
-			//alert ('Este campo no debe tener números');
-			return false;
+		
 		}else{
-			alert ('Perfeh');
+			//alert ('Perfeh');
 			return true;
 		}
 		
@@ -56,6 +57,14 @@ function validateForm(){
 			contenedor.appendChild(etiqueta);
 			//alert ('Ingrese apellido');
 			return false;
+		}else if (/[0-9]/.test(apellido)){ //No acepta números
+			var contenedor = document.getElementsByClassName('lastname-container')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('Este campo no debe tener números');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);
+			//alert ('Este campo no debe tener números');
+			return false;
 		}else if (apellido.substring(0,1) !== apellido.substring(0,1).toUpperCase()){ //La primera letra debe ser mayúscula
 			var contenedor = document.getElementsByClassName('lastname-container')[0];
 			var etiqueta = document.createElement('span');
@@ -72,16 +81,8 @@ function validateForm(){
 			contenedor.appendChild(etiqueta);
 			//alert ('Ingrese con minúscula Ej: Carrera');
 			return false;
-		}else if (/[0-9]/.test(apellido)){ //No acepta números
-			var contenedor = document.getElementsByClassName('lastname-container')[0];
-			var etiqueta = document.createElement('span');
-			var nodoError = document.createTextNode('Este campo no debe tener números');
-			etiqueta.appendChild(nodoError);
-			contenedor.appendChild(etiqueta);
-			//alert ('Este campo no debe tener números');
-			return false;
 		}else{
-			alert ('Perfeh');
+			//alert ('Perfeh');
 			return true;
 		}
 		
@@ -140,7 +141,7 @@ function validateForm(){
 			contenedor.appendChild(etiqueta);
 	    	return false;
 	    }else{
-	    	alert ('Bieen');
+	    	//alert ('Bieen');
 	    	return true;
 
 	    }
@@ -151,7 +152,12 @@ function validateForm(){
 		var lista = document.getElementsByTagName('select')[0].selectedIndex;
 		
 		if( lista == null || lista == 0 ) { // El campo no debe estar vacío.
-			alert ('Selecione un elemento de la lista')
+			//alert ('Selecione un elemento de la lista')
+			var contenedor = document.getElementsByClassName('form-group')[1];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('Seleccione un elemento de la lista');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);
  		  return false;
 		}else{
 			return true;
